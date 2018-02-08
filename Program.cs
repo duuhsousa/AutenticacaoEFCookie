@@ -22,6 +22,7 @@ namespace AutenticacaoEFCookie
                 var servico = escopo.ServiceProvider;
                 try{
                     var contexto = servico.GetRequiredService<AutenticacaoContext>();
+                    CodeFirstBanco.Inicializar(contexto);
                 }
                 catch(System.Exception ex){
                     var saida = servico.GetRequiredService<Logger<Program>>();
@@ -31,8 +32,6 @@ namespace AutenticacaoEFCookie
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+            WebHost.CreateDefaultBuilder(args).UseStartup<Startup>().Build();
     }
 }
