@@ -29,6 +29,8 @@ namespace AutenticacaoEFCookie
                     saida.LogError(ex.Message, "Erro ao criar banco");
                 }
             }
+
+            ambiente.Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
