@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace AutenticacaoEFCookie.Models
 {
@@ -21,5 +22,8 @@ namespace AutenticacaoEFCookie.Models
         [StringLength(12, MinimumLength=4)]
         [DataType(DataType.Password)]
         public string Senha { get; set; }
+
+        public ICollection<UsuarioPermissao> UsuariosPermissoes { get; set; }
+        
     }
 }
